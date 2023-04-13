@@ -1,4 +1,4 @@
-.h-screen {
+ .h-screen {
     height: 100vh;
 }
 
@@ -32,4 +32,8 @@
 
 .text-3xl {
     font-size: 30px;
+}
+
+.border {
+    border-width: 1px ;
 }

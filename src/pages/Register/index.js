@@ -5,12 +5,17 @@ import "../../stylesheets/sizes.css";
 import {Link} from "react-router-dom";
 
 function Register() {
+    const onFinish = (values) => {
+        console.log("Success: ", values)
+    }
+
     return (
         <div className="flex justify-center h-screen items-center">
             <div>
                 <h1 className="text-xl">MOVIEMART - REGISTER</h1>
                 <hr/>
-                <Form layout="vertical">
+                <Form layout="vertical"
+                      onFinish={onFinish}>
                     <Form.Item
                         label="Name"
                         name="name"

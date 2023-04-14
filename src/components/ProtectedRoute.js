@@ -22,7 +22,6 @@ function ProtectedRoute({children}){
         }
     }
 
-
     useEffect(() => {
         if(localStorage.getItem('token')){
             getCurrentUser();

@@ -10,7 +10,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { HideLoading, ShowLoading } from "../../redux/loadersSlice";
 import { message, Table } from "antd";
-// import Shows from "./Shows";
+import Shows from "./Shows";
 
 function TheatresList() {
     const { user } = useSelector((state) => state.users);
@@ -156,13 +156,13 @@ function TheatresList() {
                 />
             )}
 
-            {/*{openShowsModal && (*/}
-            {/*    <Shows*/}
-            {/*        openShowsModal={openShowsModal}*/}
-            {/*        setOpenShowsModal={setOpenShowsModal}*/}
-            {/*        theatre={selectedTheatre}*/}
-            {/*    />*/}
-            {/*)}*/}
+            {openShowsModal && (
+                <Shows
+                    openShowsModal={openShowsModal}
+                    setOpenShowsModal={setOpenShowsModal}
+                    theatre={selectedTheatre}
+                />
+            )}
         </div>
     );
 }

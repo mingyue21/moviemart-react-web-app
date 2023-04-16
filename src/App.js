@@ -11,6 +11,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import {useSelector} from "react-redux";
 import Profile from "./pages/Profile";
 import Admin from "./pages/Admin";
+import TheatresForMovie from "./pages/TheatresForMovie";
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
+                <Route path="/movie/:id" element={<ProtectedRoute><TheatresForMovie /></ProtectedRoute>} />
                 <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
                 <Route path="/admin" element={<ProtectedRoute><Admin /></ProtectedRoute>} />
                 <Route path="/login" element={<Login />} />

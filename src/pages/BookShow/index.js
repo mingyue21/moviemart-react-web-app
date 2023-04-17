@@ -42,7 +42,6 @@ function BookShow() {
 
         return (
             <div className="card gap-1 row-display flex-column p-2 ">
-
                 {Array.from(Array(rows).keys()).map((seat, index) => {
                     return (
                         <div className="flex gap-1 justify-center">

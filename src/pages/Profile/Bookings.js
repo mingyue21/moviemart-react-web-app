@@ -33,6 +33,7 @@ function Bookings() {
     }, []);
     return (
         <div>
+            {/*renyong book*/}
             <Row gutter={[16, 16]}>
                 {bookings.map((booking) => (
                     <Col span={12}>

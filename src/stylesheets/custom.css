@@ -58,7 +58,11 @@
     border : 1px solid #b1b1b1;
     cursor: pointer;
   }
-  
+
+  .row-display {
+    display: flex;
+    flex-wrap: wrap;
+  }
   
   .selected-seat {
     background-color: #118838;

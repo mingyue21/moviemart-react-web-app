@@ -5,17 +5,28 @@ import PageTitle from "../../components/PageTitle";
 import TheatresList from "./TheatresList";
 import Bookings from "./Bookings";
 function Profile() {
+    const { user } = useSelector((state) => state.users);
     return (
         <div>
             <PageTitle title="Profile" />
 
             <Tabs defaultActiveKey="1">
-                <Tabs.TabPane tab="Bookings" key="1">
-                    <Bookings />
-                </Tabs.TabPane>
-                <Tabs.TabPane tab="Theatres" key="2">
-                    <TheatresList />
-                </Tabs.TabPane>
+                {user.isUser && (
+                    <Tabs.TabPane tab="Bookings" key = "1">
+                        <Bookings />
+                    </Tabs.TabPane>
+                )}
+                {/*<Tabs.TabPane tab="Bookings" key="1">*/}
+                {/*    <Bookings />*/}
+                {/*</Tabs.TabPane>*/}
+                {user.isOwner && (
+                    <Tabs.TabPane tab="Theatres" key = "1">
+                        <TheatresList />
+                    </Tabs.TabPane>
+                )}
+                {/*<Tabs.TabPane tab="Theatres" key="2">*/}
+                {/*    <TheatresList />*/}
+                {/*</Tabs.TabPane>*/}
             </Tabs>
         </div>
     );

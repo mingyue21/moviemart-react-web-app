@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import Button from "../../components/Button";
 import { useNavigate } from "react-router-dom";
@@ -39,6 +38,7 @@ function Bookings() {
                     <Col span={12}>
                         <div className="card p-2 flex justify-between uppercase">
                             <div>
+
                                 <h1 className="text-xl">
                                     {booking.show.movie.title} ({booking.show.movie.language})
                                 </h1>
@@ -52,7 +52,7 @@ function Bookings() {
                                 </h1>
 
                                 <h1 className="text-sm">
-                                    Amount : $ {booking.show.ticketPrice * booking.seats.length}
+                                    Amount : ₹ {booking.show.ticketPrice * booking.seats.length}
                                 </h1>
                                 <h1 className="text-sm">Booking ID: {booking._id}</h1>
                             </div>
@@ -60,7 +60,7 @@ function Bookings() {
                             <div>
                                 <img
                                     src={booking.show.movie.poster}
-                                    alt="movie poster image"
+                                    alt=""
                                     height={100}
                                     width={100}
                                     className="br-1"

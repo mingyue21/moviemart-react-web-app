@@ -41,7 +41,7 @@ function BookShow() {
         const rows = Math.ceil(totalSeats / columns);
 
         return (
-            <div className="flex gap-1 flex-col p-2 card">
+            <div className="gap-1 row-display flex-column p-2 card">
 
                 {Array.from(Array(rows).keys()).map((seat, index) => {
                     return (

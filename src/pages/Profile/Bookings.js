@@ -1,13 +1,17 @@
+
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import Button from "../../components/Button";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { HideLoading, ShowLoading } from "../../redux/loadersSlice";
-import { message, Row, Col } from "antd";
+import { message, Row, Table, Col } from "antd";
 import { GetBookingsOfUser } from "../../apicalls/bookings";
 import moment from "moment";
 
 function Bookings() {
     const [bookings = [], setBookings] = useState([]);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const getData = async () => {
         try {
@@ -28,7 +32,6 @@ function Bookings() {
     useEffect(() => {
         getData();
     }, []);
-
     return (
         <div>
             <Row gutter={[16, 16]}>
@@ -57,7 +60,7 @@ function Bookings() {
                             <div>
                                 <img
                                     src={booking.show.movie.poster}
-                                    alt=""
+                                    alt="movie poster image"
                                     height={100}
                                     width={100}
                                     className="br-1"

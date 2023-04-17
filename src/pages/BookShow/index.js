@@ -41,12 +41,18 @@ function BookShow() {
         const rows = Math.ceil(totalSeats / columns);
 
         return (
-            <div className="flex gap-1 flex-col p-2 card">
+            <div className="card gap-1 row-display flex-column p-2 ">
 
                 {Array.from(Array(rows).keys()).map((seat, index) => {
                     return (
                         <div className="flex gap-1 justify-center">
                             {Array.from(Array(columns).keys()).map((column, index) => {
+                                // return (
+                                //     <div className="seat">
+                                //         <h1 className="text-sm">{seat * columns + column + 1}</h1>
+                                //
+                                //     </div>
+                                // );
                                 const seatNumber = seat * columns + column + 1;
                                 let seatClass = "seat";
 

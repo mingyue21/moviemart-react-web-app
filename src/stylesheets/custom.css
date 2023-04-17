@@ -48,6 +48,11 @@
   }
   
   /* seats */
+.row-display {
+  display: flex;
+  flex-wrap: wrap;
+}
+
   
   .seat {
     height: 30px;

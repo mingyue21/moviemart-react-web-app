@@ -7,7 +7,7 @@ import { GetShowById } from "../../apicalls/theatres";
 import { HideLoading, ShowLoading } from "../../redux/loadersSlice";
 import StripeCheckout from "react-stripe-checkout";
 import Button from "../../components/Button";
-// import { BookShowTickets, MakePayment } from "../../apicalls/bookings";
+import { BookShowTickets, MakePayment } from "../../apicalls/bookings";
 
 function BookShow() {
     const { user } = useSelector((state) => state.users);

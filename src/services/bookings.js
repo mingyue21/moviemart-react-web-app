@@ -1,9 +1,9 @@
 import { axiosInstance } from ".";
 
 // get bookings of a user
-export const GetBookingsOfUser = async () => {
+export const GetBookingsOfUser = async (userId) => {
     try {
-        const response = await axiosInstance.get("/api/bookings/get-bookings");
+        const response = await axiosInstance.get(`/api/bookings/${userId}`);
         return response.data;
     } catch (error) {
         return error.response.data;

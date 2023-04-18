@@ -8,6 +8,7 @@ import { GetBookingsOfUser } from "../../services/bookings";
 import moment from "moment";
 
 function Bookings() {
+    const { user } = useSelector((state) => state.users);
     const [bookings = [], setBookings] = useState([]);
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -15,7 +16,7 @@ function Bookings() {
     const getData = async () => {
         try {
             dispatch(ShowLoading());
-            const response = await GetBookingsOfUser();
+            const response = await GetBookingsOfUser(user._id);
             if (response.success) {
                 setBookings(response.data);
             } else {

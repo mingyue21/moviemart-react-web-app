@@ -3,7 +3,7 @@ import {Form, message, Radio, Select} from "antd";
 import Button from "../../components/Button";
 import "../../stylesheets/sizes.css";
 import {Link, useNavigate} from "react-router-dom";
-import {RegisterUser} from "../../apicalls/users";
+import {RegisterUser} from "../../services/users";
 import {useDispatch} from "react-redux";
 import {HideLoading, ShowLoading} from "../../redux/loadersSlice";
 

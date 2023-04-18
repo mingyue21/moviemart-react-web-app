@@ -3,11 +3,11 @@ import moment from "moment";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { GetShowById } from "../../apicalls/theatres";
+import { GetShowById } from "../../services/shows";
 import { HideLoading, ShowLoading } from "../../redux/loadersSlice";
 import StripeCheckout from "react-stripe-checkout";
 import Button from "../../components/Button";
-import { BookShowTickets, MakePayment } from "../../apicalls/bookings";
+import { BookShowTickets, MakePayment } from "../../services/bookings";
 
 function BookShow() {
     const { user } = useSelector((state) => state.users);
@@ -20,9 +20,7 @@ function BookShow() {
     const getData = async () => {
         try {
             dispatch(ShowLoading());
-            const response = await GetShowById({
-                showId: params.id,
-            });
+            const response = await GetShowById(params.id);
             if (response.success) {
                 setShow(response.data);
             } else {

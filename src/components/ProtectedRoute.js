@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {message} from 'antd';
-import {GetCurrentUser} from "../apicalls/users";
+import {GetCurrentUser} from "../services/users";
 import {useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {SetUser} from "../redux/usersSlice";

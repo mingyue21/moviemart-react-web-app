@@ -1,7 +1,7 @@
 import { Form, message, Modal } from "antd";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { AddTheatre, UpdateTheatre } from "../../apicalls/theatres";
+import { AddTheatre, UpdateTheatre } from "../../services/theatres";
 import Button from "../../components/Button";
 import { HideLoading, ShowLoading } from "../../redux/loadersSlice";
 
@@ -25,7 +25,7 @@ function TheatreForm({
                 response = await AddTheatre(values);
             } else {
                 values.theatreId = selectedTheatre._id;
-                response = await UpdateTheatre(values);
+                response = await UpdateTheatre(selectedTheatre._id, values);
             }
 
             if (response.success) {

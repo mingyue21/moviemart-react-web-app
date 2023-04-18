@@ -1,14 +1,14 @@
 import { Col, Form, Modal, Row, Table, message } from "antd";
 import React, { useEffect } from "react";
 import Button from "../../../components/Button";
-import { GetAllMovies } from "../../../apicalls/movies";
+import { GetAllMovies } from "../../../services/movies";
 import { useDispatch } from "react-redux";
 import { HideLoading, ShowLoading } from "../../../redux/loadersSlice";
 import {
     AddShow,
     DeleteShow,
     GetAllShowsByTheatre,
-} from "../../../apicalls/theatres";
+} from "../../../services/shows";
 import moment from "moment";
 
 function Shows({ openShowsModal, setOpenShowsModal, theatre }) {
@@ -27,9 +27,7 @@ function Shows({ openShowsModal, setOpenShowsModal, theatre }) {
                 message.error(moviesResponse.message);
             }
 
-            const showsResponse = await GetAllShowsByTheatre({
-                theatreId: theatre._id,
-            });
+            const showsResponse = await GetAllShowsByTheatre(theatre._id);
             if (showsResponse.success) {
                 setShows(showsResponse.data);
             } else {
@@ -66,7 +64,7 @@ function Shows({ openShowsModal, setOpenShowsModal, theatre }) {
     const handleDelete = async (id) => {
         try {
           dispatch(ShowLoading());
-          const response = await DeleteShow({ showId: id });
+          const response = await DeleteShow(id);
     
           if (response.success) {
             message.success(response.message);

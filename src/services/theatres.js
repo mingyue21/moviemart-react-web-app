@@ -3,10 +3,7 @@ import { axiosInstance } from ".";
 // Add a new theatre
 export const AddTheatre = async (payload) => {
     try {
-        const response = await axiosInstance.post(
-            "/api/theatres/add-theatre",
-            payload
-        );
+        const response = await axiosInstance.post("/api/theatres", payload);
         return response.data;
     } catch (error) {
         return error.response;
@@ -16,20 +13,7 @@ export const AddTheatre = async (payload) => {
 // get all theatres
 export const GetAllTheatres = async () => {
     try {
-        const response = await axiosInstance.get("/api/theatres/get-all-theatres");
-        return response.data;
-    } catch (error) {
-        return error.response;
-    }
-};
-
-// get all theatres by owner
-export const GetAllTheatresByOwner = async (payload) => {
-    try {
-        const response = await axiosInstance.post(
-            "/api/theatres/get-all-theatres-by-owner",
-            payload
-        );
+        const response = await axiosInstance.get("/api/theatres");
         return response.data;
     } catch (error) {
         return error.response;
@@ -37,12 +21,9 @@ export const GetAllTheatresByOwner = async (payload) => {
 };
 
 // update theatre
-export const UpdateTheatre = async (payload) => {
+export const UpdateTheatre = async (theatreId, payload) => {
     try {
-        const response = await axiosInstance.post(
-            "/api/theatres/update-theatre",
-            payload
-        );
+        const response = await axiosInstance.put(`api/theatres/${theatreId}`, payload);
         return response.data;
     } catch (error) {
         return error.response;
@@ -50,51 +31,19 @@ export const UpdateTheatre = async (payload) => {
 };
 
 // delete theatre
-export const DeleteTheatre = async (payload) => {
+export const DeleteTheatre = async (theatreId) => {
     try {
-        const response = await axiosInstance.post(
-            "/api/theatres/delete-theatre",
-            payload
-        );
+        const response = await axiosInstance.delete(`/api/theatres/${theatreId}`);
         return response.data;
     } catch (error) {
         return error.response;
     }
 };
 
-// add show
-export const AddShow = async (payload) => {
+// get all theatres by owner
+export const GetAllTheatresByOwner = async (ownerId) => {
     try {
-        const response = await axiosInstance.post(
-            "/api/theatres/add-show",
-            payload
-        );
-        return response.data;
-    } catch (error) {
-        return error.response;
-    }
-};
-
-// get all shows
-export const GetAllShowsByTheatre = async (payload) => {
-    try {
-        const response = await axiosInstance.post(
-            "/api/theatres/get-all-shows-by-theatre",
-            payload
-        );
-        return response.data;
-    } catch (error) {
-        return error.response;
-    }
-};
-
-// delete show
-export const DeleteShow = async (payload) => {
-    try {
-        const response = await axiosInstance.post(
-            "/api/theatres/delete-show",
-            payload
-        );
+        const response = await axiosInstance.get(`/api/theatres/get-all-theatres-by-owner/${ownerId}`);
         return response.data;
     } catch (error) {
         return error.response;
@@ -104,26 +53,9 @@ export const DeleteShow = async (payload) => {
 // get all theatres for a movie
 export const GetAllTheatresByMovie = async (payload) => {
     try {
-        const response = await axiosInstance.post(
-            "/api/theatres/get-all-theatres-by-movie",
-            payload
-        );
+        const response = await axiosInstance.post("/api/theatres/get-all-theatres-by-movie", payload);
         return response.data;
     } catch (error) {
         return error.response;
     }
 };
-
-
-// get show by id
-export const GetShowById = async (payload) => {
-    try {
-        const response = await axiosInstance.post(
-            "/api/theatres/get-show-by-id",
-            payload
-        );
-        return response.data;
-    } catch (error) {
-        return error.response;
-    }
-}

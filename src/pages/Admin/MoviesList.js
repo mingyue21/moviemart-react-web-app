@@ -34,9 +34,7 @@ function MoviesList() {
     const handleDelete = async (movieId) => {
         try {
             dispatch(ShowLoading());
-            const response = await DeleteMovie({
-                movieId,
-            });
+            const response = await DeleteMovie(movieId);
             if (response.success) {
                 message.success(response.message);
                 getData();

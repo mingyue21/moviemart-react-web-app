@@ -29,7 +29,7 @@ function MovieForm({
             if (formType === "add") {
                 response = await AddMovie(values);
             } else {
-                response = await UpdateMovie({
+                response = await UpdateMovie(selectedMovie._id, {
                     ...values,
                     movieId: selectedMovie._id,
                 });

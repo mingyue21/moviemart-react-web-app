@@ -8,7 +8,7 @@ import {
     AddShow,
     DeleteShow,
     GetAllShowsByTheatre,
-} from "../../../services/theatres";
+} from "../../../services/shows";
 import moment from "moment";
 
 function Shows({ openShowsModal, setOpenShowsModal, theatre }) {
@@ -27,9 +27,7 @@ function Shows({ openShowsModal, setOpenShowsModal, theatre }) {
                 message.error(moviesResponse.message);
             }
 
-            const showsResponse = await GetAllShowsByTheatre({
-                theatreId: theatre._id,
-            });
+            const showsResponse = await GetAllShowsByTheatre(theatre._id);
             if (showsResponse.success) {
                 setShows(showsResponse.data);
             } else {
@@ -66,7 +64,7 @@ function Shows({ openShowsModal, setOpenShowsModal, theatre }) {
     const handleDelete = async (id) => {
         try {
           dispatch(ShowLoading());
-          const response = await DeleteShow({ showId: id });
+          const response = await DeleteShow(id);
     
           if (response.success) {
             message.success(response.message);

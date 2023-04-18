@@ -25,7 +25,7 @@ function TheatreForm({
                 response = await AddTheatre(values);
             } else {
                 values.theatreId = selectedTheatre._id;
-                response = await UpdateTheatre(values);
+                response = await UpdateTheatre(selectedTheatre._id, values);
             }
 
             if (response.success) {

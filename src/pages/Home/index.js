@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Col, message, Row } from "antd";
 import { useDispatch } from "react-redux";
 import { HideLoading, ShowLoading } from "../../redux/loadersSlice";
-import { GetAllMovies } from "../../apicalls/movies";
+import { GetAllMovies } from "../../services/movies";
 import { useNavigate } from "react-router-dom";
 import moment from "moment";
 

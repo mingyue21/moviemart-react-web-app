@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { HideLoading, ShowLoading } from "../../redux/loadersSlice";
 import { message, Row, Table, Col } from "antd";
-import { GetBookingsOfUser } from "../../apicalls/bookings";
+import { GetBookingsOfUser } from "../../services/bookings";
 import moment from "moment";
 
 function Bookings() {

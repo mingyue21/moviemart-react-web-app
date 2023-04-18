@@ -6,7 +6,7 @@ import {
     DeleteTheatre,
     GetAllTheatres,
     GetAllTheatresByOwner,
-} from "../../apicalls/theatres";
+} from "../../services/theatres";
 import { useDispatch, useSelector } from "react-redux";
 import { HideLoading, ShowLoading } from "../../redux/loadersSlice";
 import { message, Table } from "antd";

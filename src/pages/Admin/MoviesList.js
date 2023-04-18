@@ -4,7 +4,7 @@ import MovieForm from "./MovieForm";
 import moment from "moment";
 import {HideLoading, ShowLoading} from "../../redux/loadersSlice";
 import {message, Table} from "antd";
-import {DeleteMovie, GetAllMovies} from "../../apicalls/movies";
+import {DeleteMovie, GetAllMovies} from "../../services/movies";
 import {useDispatch} from "react-redux";
 
 

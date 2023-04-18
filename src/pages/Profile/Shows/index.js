@@ -1,14 +1,14 @@
 import { Col, Form, Modal, Row, Table, message } from "antd";
 import React, { useEffect } from "react";
 import Button from "../../../components/Button";
-import { GetAllMovies } from "../../../apicalls/movies";
+import { GetAllMovies } from "../../../services/movies";
 import { useDispatch } from "react-redux";
 import { HideLoading, ShowLoading } from "../../../redux/loadersSlice";
 import {
     AddShow,
     DeleteShow,
     GetAllShowsByTheatre,
-} from "../../../apicalls/theatres";
+} from "../../../services/theatres";
 import moment from "moment";
 
 function Shows({ openShowsModal, setOpenShowsModal, theatre }) {

@@ -1,5 +1,5 @@
 import React, {useEffect} from "react";
-import {Form, message} from "antd";
+import {Form, message, Radio, Select} from "antd";
 import Button from "../../components/Button";
 import "../../stylesheets/sizes.css";
 import {Link, useNavigate} from "react-router-dom";
@@ -10,10 +10,18 @@ import {HideLoading, ShowLoading} from "../../redux/loadersSlice";
 function Register() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
+
     const onFinish = async(values) => {
         try {
             dispatch(ShowLoading());
-            const response = await RegisterUser(values);
+            const { role } = values;
+            const updatedValues = {
+                ...values,
+                isAdmin: role === "admin",
+                isUser: role === "user",
+                isOwner: role === "owner",
+            };
+            const response = await RegisterUser(updatedValues);
             dispatch(HideLoading());
             if(response.success){
                 message.success(response.message);
@@ -57,6 +65,19 @@ function Register() {
                         rules={[{required:true, message:"Please enter your password"}]}>
                         <input type="text"/>
                     </Form.Item>
+                    <Form.Item
+                        label="Role"
+                        name="role"
+                        initialValue={false}
+                        rules={[{ required: true, message: 'Please select a role' }]}
+                    >
+                        <Select>
+                            <Select.Option value="admin">Admin</Select.Option>
+                            <Select.Option value="user">User</Select.Option>
+                            <Select.Option value="owner">Owner</Select.Option>
+                        </Select>
+                    </Form.Item>
+
                     <div className="flex flex-column mt-2 gap-1">
                         <Button
                             fullWidth title="REGISTER" type='submit'/>

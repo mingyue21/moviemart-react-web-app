@@ -20,7 +20,7 @@ function Profile() {
                 {/*    <Bookings />*/}
                 {/*</Tabs.TabPane>*/}
                 {user.isOwner && (
-                    <Tabs.TabPane tab="Theatres" key = "1">
+                    <Tabs.TabPane tab="Theatres" key = "2">
                         <TheatresList />
                     </Tabs.TabPane>
                 )}

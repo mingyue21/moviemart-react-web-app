@@ -1,6 +1,6 @@
 import axios from "axios";
 const TMDB_API = "https://api.themoviedb.org/3";
-const TMDB_KEY = "92d4a2332e17911c7de8cdb736087546"
+const TMDB_KEY = process.env.REACT_APP_TMDB_KEY;
 
 export const fullTextSearch = async (query) => {
   const response = await axios.get(`${TMDB_API}/search/movie?api_key=${TMDB_KEY}&query=${query}`);

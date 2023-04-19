@@ -7,7 +7,10 @@ function Landing() {
             Landing Page
             <div>
                 <Link to="/search">
-                    Search
+                    Search |
+                </Link>
+                <Link to="/login">
+                    Login
                 </Link>
             </div>
 

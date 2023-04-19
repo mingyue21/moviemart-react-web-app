@@ -44,7 +44,7 @@ function ProtectedRoute({children}){
             <div className="header bg-primary flex justify-between p-2">
                 <div>
                     <h1 className="text-2xl text-white cursor-pointer"
-                        onClick={() => navigate("/")}
+                        onClick={() => navigate("/home")}
                     >MOVIEMART</h1>
                 </div>
 

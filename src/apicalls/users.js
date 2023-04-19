@@ -29,3 +29,13 @@ export const GetCurrentUser = async () => {
         return error;
     }
 };
+
+//Update personal information
+export const UpdatePersonalInfo = async (payload) => {
+    try {
+        const response = await axiosInstance.post("/api/users/update-personal-info", payload);
+        return response.data;
+    } catch (error) {
+        return error;
+    }
+}

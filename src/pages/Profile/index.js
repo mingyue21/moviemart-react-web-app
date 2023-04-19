@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import PageTitle from "../../components/PageTitle";
 import TheatresList from "./TheatresList";
 import Bookings from "./Bookings";
+import PersonalInformation from "./PersonalInformation";
 function Profile() {
     const { user } = useSelector((state) => state.users);
     return (
@@ -14,6 +15,7 @@ function Profile() {
                 {user.isUser && (
                     <Tabs.TabPane tab="Bookings" key = "1">
                         <Bookings />
+
                     </Tabs.TabPane>
                 )}
                 {/*<Tabs.TabPane tab="Bookings" key="1">*/}
@@ -22,11 +24,15 @@ function Profile() {
                 {user.isOwner && (
                     <Tabs.TabPane tab="Theatres" key = "1">
                         <TheatresList />
+
                     </Tabs.TabPane>
                 )}
                 {/*<Tabs.TabPane tab="Theatres" key="2">*/}
                 {/*    <TheatresList />*/}
                 {/*</Tabs.TabPane>*/}
+                <Tabs.TabPane tab="Personal Information" key="2">
+                    <PersonalInformation />
+                </Tabs.TabPane>
             </Tabs>
         </div>
     );

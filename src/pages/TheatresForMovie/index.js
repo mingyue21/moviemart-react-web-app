@@ -2,10 +2,10 @@ import React, { useEffect } from "react";
 import { message} from "antd";
 import { useDispatch } from "react-redux";
 import { HideLoading, ShowLoading } from "../../redux/loadersSlice";
-import { GetMovieById} from "../../apicalls/movies";
+import { GetMovieById} from "../../services/movies";
 import {useNavigate, useParams} from "react-router-dom";
 import moment from "moment";
-import { GetAllTheatresByMovie } from "../../apicalls/theatres";
+import { GetAllTheatresByMovie } from "../../services/theatres";
 
 function TheatresForMovie() {
     // get date from query string

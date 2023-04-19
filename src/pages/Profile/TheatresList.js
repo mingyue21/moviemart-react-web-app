@@ -6,7 +6,7 @@ import {
     DeleteTheatre,
     GetAllTheatres,
     GetAllTheatresByOwner,
-} from "../../apicalls/theatres";
+} from "../../services/theatres";
 import { useDispatch, useSelector } from "react-redux";
 import { HideLoading, ShowLoading } from "../../redux/loadersSlice";
 import { message, Table } from "antd";
@@ -28,9 +28,7 @@ function TheatresList() {
     const getData = async () => {
         try {
             dispatch(ShowLoading());
-            const response = await GetAllTheatresByOwner({
-                owner: user._id,
-            });
+            const response = await GetAllTheatresByOwner(user._id);
             if (response.success) {
                 setTheatres(response.data);
             } else {
@@ -46,7 +44,7 @@ function TheatresList() {
     const handleDelete = async (id) => {
         try {
             dispatch(ShowLoading());
-            const response = await DeleteTheatre({ theatreId: id });
+            const response = await DeleteTheatre(id);
             if (response.success) {
                 message.success(response.message);
                 getData();

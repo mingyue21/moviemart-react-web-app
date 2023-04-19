@@ -3,7 +3,7 @@ import { Input, Button } from "antd";
 import { useSelector, useDispatch } from "react-redux";
 import { SetUser } from "../../redux/usersSlice";
 import PageTitle from "../../components/PageTitle";
-import {UpdatePersonalInfo} from "../../apicalls/users";
+import {UpdatePersonalInfo} from "../../services/users";
 import * as error from "antd";
 
 

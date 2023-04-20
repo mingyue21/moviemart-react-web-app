@@ -39,3 +39,13 @@ export const UpdatePersonalInfo = async (payload) => {
         return error;
     }
 }
+
+// //  if the email already exists
+// export const checkEmail = async (payload) => {
+//     try {
+//         const response = await axiosInstance.post("/api/users/update-personal-info", payload);
+//         return response.data;
+//     } catch (error) {
+//         return error;
+//     }
+// }

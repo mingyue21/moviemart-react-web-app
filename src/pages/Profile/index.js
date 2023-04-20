@@ -5,6 +5,8 @@ import PageTitle from "../../components/PageTitle";
 import TheatresList from "./TheatresList";
 import Bookings from "./Bookings";
 import PersonalInformation from "./PersonalInformation";
+import BookmarksList from "./BookmarksList";
+
 function Profile() {
     const { user } = useSelector((state) => state.users);
     return (
@@ -32,6 +34,10 @@ function Profile() {
                 {/*</Tabs.TabPane>*/}
                 <Tabs.TabPane tab="Personal Information" key="2">
                     <PersonalInformation />
+                </Tabs.TabPane>
+                
+                <Tabs.TabPane tab="Bookmark" key="3">
+                    <BookmarksList />
                 </Tabs.TabPane>
             </Tabs>
         </div>

@@ -11,6 +11,10 @@
     background-color: var(--color-secondary);
 }
 
+.bg-transparent {
+    background-color: transparent;
+}
+
 .bg-error{
     background-color: #ff0000;
 }

@@ -5,6 +5,7 @@ import {useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {SetUser} from "../redux/usersSlice";
 import {HideLoading, ShowLoading} from "../redux/loadersSlice";
+import "../stylesheets/alignment.css";
 
 function ProtectedRoute({children}){
     const { user } = useSelector((state) => state.users);
@@ -40,17 +41,20 @@ function ProtectedRoute({children}){
 
     return(
         user && (
-        <div className="layout p-1">
-            <div className="header bg-primary flex justify-between p-2">
+        <div className="layout p-1 position-rel">
+            <div className="header bg-primary flex  p-2">
                 <div>
-                    <h1 className="text-2xl text-white cursor-pointer"
-                        onClick={() => navigate("/")}
-                    >MOVIEMART</h1>
+                    <h1 className="text-2xl text-white cursor-pointer mr-3">MOVIEMART</h1>
                 </div>
 
-                <div className="bg-white p-1 flex gap-1">
-                    <i className="ri-shield-user-line text-primary"></i>
-                    <h1 className="text-sm underline"
+                <div>
+                    <h1 className="text-xl text-white cursor-pointer ml-8 mr-3 mt-3px"
+                        onClick={() => navigate("/")}
+                    >Home</h1>
+                </div>
+
+                <div>
+                    <h1 className="text-xl text-white cursor-pointer ml-1 mr-3 mt-3px p-1px"
                         onClick={() => {
                             if (user.isAdmin) {
                                 navigate("/admin");
@@ -58,19 +62,32 @@ function ProtectedRoute({children}){
                                 navigate("/profile");
                             }
                         }}
-                    >
-                        {user.name}
-                    </h1>
-
-                    <i className="ri-logout-circle-r-line ml-2"
-                       onClick={() => {
-                           localStorage.removeItem("token");
-                           navigate("/login");
-                       }}
-                    ></i>
+                    >Profile</h1>
                 </div>
-
             </div>
+
+            <div className="bg-white p-1 flex gap-1 float-end top-25 position-abs right-15">
+                <i className="ri-shield-user-line text-primary"></i>
+                <h1 className="text-sm underline"
+                    onClick={() => {
+                        if (user.isAdmin) {
+                            navigate("/admin");
+                        } else {
+                            navigate("/profile");
+                        }
+                    }}
+                >
+                    {user.name}
+                </h1>
+
+                <i className="ri-logout-circle-r-line ml-2"
+                   onClick={() => {
+                       localStorage.removeItem("token");
+                       navigate("/login");
+                   }}
+                ></i>
+            </div>
+
             <div className="content mt-1 p-1">
                 {children}
             </div>

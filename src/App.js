@@ -13,7 +13,9 @@ import Profile from "./pages/Profile";
 import Admin from "./pages/Admin";
 import TheatresForMovie from "./pages/TheatresForMovie";
 import BookShow from './pages/BookShow';
-
+import Search from './pages/Search';
+import Landing from './pages/Landing'
+import SearchDetail from './pages/Search/SearchDetail';
 
 function App() {
   const { loading } = useSelector((state) => state.loaders);
@@ -26,7 +28,12 @@ function App() {
         )}
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
+                <Route path="/" element={<Landing />}/>
+                <Route path="/search" element={<Search />}/>
+                <Route path="/search/:searchTerm" element={<Search />}/>
+                <Route path="/search/:searchTerm/:searchType" element={<Search />}/>
+                <Route path="/detail/:id" element={<SearchDetail />}/>
+                <Route path="/home" element={<ProtectedRoute><Home /></ProtectedRoute>} />
                 <Route path="/movie/:id" element={<ProtectedRoute><TheatresForMovie /></ProtectedRoute>} />
                 <Route path="/book-show/:id" element={<ProtectedRoute><BookShow /></ProtectedRoute>} />
                 <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />

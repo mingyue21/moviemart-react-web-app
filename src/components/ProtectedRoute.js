@@ -92,8 +92,6 @@ function ProtectedRoute({children}){
                 {children}
             </div>
 
-            {/*{user.name}*/}
-            {/*{children}*/}
         </div>
         )
     );

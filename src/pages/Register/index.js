@@ -38,6 +38,7 @@ function Register() {
                 dispatch(HideLoading());
                 if (response.success) {
                     message.success(response.message);
+                    navigate("/login");
                 } else {
                     message.error(response.message);
                 }
@@ -45,6 +46,7 @@ function Register() {
                 dispatch(HideLoading());
                 message.error(error.message);
             }
+            setLoginClicked(!setLoginClicked);
         }
     };
 

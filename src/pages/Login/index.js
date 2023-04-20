@@ -43,7 +43,9 @@ function Login() {
                 dispatch(HideLoading());
                 message.error(error.message);
             }
+            setLoginClicked(!setLoginClicked);
         }
+
     };
 
     useEffect(() => {

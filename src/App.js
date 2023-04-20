@@ -28,11 +28,11 @@ function App() {
         )}
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<Landing />}/>
-                <Route path="/search" element={<Search />}/>
-                <Route path="/search/:searchTerm" element={<Search />}/>
-                <Route path="/search/:searchTerm/:searchType" element={<Search />}/>
-                <Route path="/detail/:id" element={<SearchDetail />}/>
+                <Route path="/" element={<ProtectedRoute><Landing /></ProtectedRoute>}/>
+                <Route path="/search" element={<ProtectedRoute><Search /></ProtectedRoute>}/>
+                <Route path="/search/:searchTerm" element={<ProtectedRoute><Search /></ProtectedRoute>}/>
+                <Route path="/search/:searchTerm/:searchType" element={<ProtectedRoute><Search /></ProtectedRoute>}/>
+                <Route path="/detail/:id" element={<ProtectedRoute><SearchDetail /></ProtectedRoute>}/>
                 <Route path="/home" element={<ProtectedRoute><Home /></ProtectedRoute>} />
                 <Route path="/movie/:id" element={<ProtectedRoute><TheatresForMovie /></ProtectedRoute>} />
                 <Route path="/book-show/:id" element={<ProtectedRoute><BookShow /></ProtectedRoute>} />

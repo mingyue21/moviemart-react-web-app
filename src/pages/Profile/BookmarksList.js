@@ -1,20 +1,22 @@
 import React from "react";
-import { Link } from 'react-router-dom';
-import { getAllBookmarkedMovies } from "../../services/bookmarks";
-import { useState } from "react";
 import { Row, Col } from 'antd';
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { HideLoading, ShowLoading } from "../../redux/loadersSlice";
 import { message } from "antd";
+import { Link } from "react-router-dom";
+import { getAllBookmarkedMoviesByUser, getAllBookmarkedMovies} from "../../services/bookmarks";
+import { useSelector } from "react-redux";
 
-
-function Landing() {
-    const [movies, setMovies] = React.useState([]);
+function BookmarksList() {
+    const { user } = useSelector((state) => state.users);
+  
+    const [movies = [], setMovies] = React.useState([]);
     const dispatch = useDispatch();
     const getData = async () => {
       try {
         dispatch(ShowLoading());
+        // const response = await getAllBookmarkedMoviesByUser(user._id);
         const response = await getAllBookmarkedMovies();
         if (response.success) {
           setMovies(response.data);
@@ -34,12 +36,6 @@ function Landing() {
 
     return (
         <div>
-            <div>
-                <Link to="/search">
-                    Search
-                </Link>
-            </div>
-
             <h2>Bookmarked Movies</h2>
             <Row gutter={[30]} className="mt-2">
                 {movies && movies.map((movie) => (
@@ -61,4 +57,4 @@ function Landing() {
     )
 }
 
-export default Landing;
+export default BookmarksList;

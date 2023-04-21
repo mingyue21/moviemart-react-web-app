@@ -5,6 +5,8 @@ import PageTitle from "../../components/PageTitle";
 import TheatresList from "./TheatresList";
 import Bookings from "./Bookings";
 import PersonalInformation from "./PersonalInformation";
+import BookmarksList from "./BookmarksList";
+
 function Profile() {
     const { user } = useSelector((state) => state.users);
     return (
@@ -12,27 +14,25 @@ function Profile() {
             <PageTitle title="Profile" />
 
             <Tabs defaultActiveKey="1">
-                {user.isUser && (
-                    <Tabs.TabPane tab="Bookings" key = "1">
-                        <Bookings />
-
-                    </Tabs.TabPane>
-                )}
-                {/*<Tabs.TabPane tab="Bookings" key="1">*/}
-                {/*    <Bookings />*/}
-                {/*</Tabs.TabPane>*/}
-                {user.isOwner && (
-                    <Tabs.TabPane tab="Theatres" key = "2">
-                        <TheatresList />
-
-                    </Tabs.TabPane>
-                )}
-                {/*<Tabs.TabPane tab="Theatres" key="2">*/}
-                {/*    <TheatresList />*/}
-                {/*</Tabs.TabPane>*/}
-                <Tabs.TabPane tab="Personal Information" key="2">
+                <Tabs.TabPane tab="Personal Information" key="1">
                     <PersonalInformation />
                 </Tabs.TabPane>
+
+                <Tabs.TabPane tab="Bookmarks" key="2">
+                    <BookmarksList />
+                </Tabs.TabPane>
+
+                {user.isUser && (
+                    <Tabs.TabPane tab="Bookings" key="3">
+                        <Bookings />
+                    </Tabs.TabPane>
+                )}
+
+                {user.isOwner && (
+                    <Tabs.TabPane tab="Theatres" key="4">
+                        <TheatresList />
+                    </Tabs.TabPane>
+                )}
             </Tabs>
         </div>
     );

@@ -13,6 +13,7 @@ function PersonalInformation() {
     const [phoneNumber, setPhoneNumber] = useState(user.phoneNumber);
     const [modalVisible, setModalVisible] = useState(false);
     const [errorModalVisible, setErrorModalVisible] = useState(false);
+    const [originalUserData, setOriginalUserData] = useState(user);
     const dispatch = useDispatch();
 
     const handleSave = async () => {
@@ -40,6 +41,17 @@ function PersonalInformation() {
         }
     };
 
+    const handleReset = () => {
+        setName(originalUserData.name);
+        setAge(originalUserData.age);
+        setEmail(originalUserData.email);
+        setPhoneNumber(originalUserData.phoneNumber);
+    };
+
+    const handleCancel = () => {
+        handleReset();
+    };
+
     return (
         <div>
             <PageTitle title="Personal Information" />
@@ -62,8 +74,12 @@ function PersonalInformation() {
 
             </form>
 
-            <Button variant="dark" onClick={handleSave}>
+            <Button variant="dark" onClick={handleSave} >
                 Save
+            </Button>
+
+            <Button variant="light" onClick={handleCancel} className="ml-2">
+                Cancel
             </Button>
 
             <Modal

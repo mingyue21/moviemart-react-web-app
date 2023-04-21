@@ -3,6 +3,7 @@ import { Link, useParams, useNavigate } from "react-router-dom";
 import { fullTextSearch } from "../../services/search"
 import { Col, message, Row } from "antd";
 import { GetAllMovies } from "../../services/movies";
+import { Button } from "antd";
 
 function Search() {
     const { searchTerm } = useParams();
@@ -13,7 +14,6 @@ function Search() {
         const response = await fullTextSearch(search);
         setResults(response);
         navigate(`/search/${search}`);
-        console.log(results)
     };
 
     useEffect(() => {
@@ -25,9 +25,6 @@ function Search() {
     return (
         <div>
             <h1>Search Movie</h1>
-            <button onClick={searchMovie} className="float-end btn btn-primary">
-                Search
-            </button>
             <input
                 type="text"
                 className="search-input"
@@ -35,6 +32,9 @@ function Search() {
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
             />
+            <Button onClick={searchMovie} className="float-end btn btn-primary">
+                Search
+            </Button>
 
             <h2>Movies</h2>
             <Row gutter={[30]} className="mt-2">

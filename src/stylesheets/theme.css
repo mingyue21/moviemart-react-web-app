@@ -51,5 +51,11 @@
     border-color: var(--color-secondary);
 }
 
+.white-underline {
+    border-bottom: 3px solid white;
+    padding-bottom: 10px;
+}
+
+
 
 

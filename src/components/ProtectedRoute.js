@@ -32,6 +32,8 @@ function ProtectedRoute({ children }) {
     }
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+    const [activeLink, setActiveLink] = useState("/");
+
     useEffect(() => {
         setIsLoggedIn(!!user);
     }, [user]);
@@ -47,37 +49,47 @@ function ProtectedRoute({ children }) {
         <div className="layout p-1 position-rel">
             <div className="header bg-primary flex  p-2">
                 <div>
-                    <h1 className="text-2xl text-white cursor-pointer mr-3"
+                    <h1 className="text-2xl text-white mr-3"
+                        // onClick={() => {
+                        //     navigate("/")
+                        // }
+                    >MOVIEMART</h1>
+                </div>
+
+                <div>
+                    <h1
+                        className={`text-xl text-white cursor-pointer ml-8 mr-3 mt-3px ${activeLink === "/" ? " white-underline" : ""}`}
                         onClick={() => {
-                            navigate("/")
-                        }}>MOVIEMART</h1>
+                            navigate("/");
+                            setActiveLink("/")
+                    }}>Home</h1>
                 </div>
 
                 <div>
-                    <h1 className="text-xl text-white cursor-pointer ml-8 mr-3 mt-3px"
-                        onClick={() => navigate("/")}
-                    >Home</h1>
-                </div>
-
-                <div>
-                    <h1 className="text-xl text-white cursor-pointer ml-1 mr-3 mt-3px p-1px"
+                    <h1
+                        className={`text-xl text-white cursor-pointer ml-1 mr-3 mt-3px p-1px ${activeLink === "/movie" ? " white-underline" : ""}`}
                         onClick={() => {
                             if (user) {
                                 navigate("/movie")
+                                setActiveLink("/movie")
                             } else {
                                 navigate("/login")
+                                // setActiveLink("/login")
                             }
                         }}
                     >Movie</h1>
                 </div>
                 <div>
-                    <h1 className="text-xl text-white cursor-pointer ml-1 mr-3 mt-3px p-1px"
+                    <h1
+                        className={`text-xl text-white cursor-pointer ml-1 mr-3 mt-3px p-1px ${activeLink === "/profile" || activeLink === "/admin" ? "white-underline" : ""}`}
                         onClick={() => {
                             if (user) {
                                 if (user.isAdmin) {
                                     navigate("/admin");
+                                    setActiveLink("/admin");
                                 } else {
                                     navigate("/profile");
+                                    setActiveLink("/profile");
                                 }
                             } else {
                                 navigate("/login")
@@ -90,30 +102,32 @@ function ProtectedRoute({ children }) {
             <div className="bg-white p-1 flex gap-1 float-end top-25 position-abs right-15">
                 <i className="ri-shield-user-line text-primary"></i>
                 {isLoggedIn ?
-                    <h1 className="text-sm underline"
+                    <h1 className= {`text-sm cursor-pointer ${activeLink === "/profile" || activeLink === "/admin" ? "white-underline" : ""}`}
                         onClick={() => {
                             if (user.isAdmin) {
                                 navigate("/admin");
+                                setActiveLink("/admin");
                             } else {
                                 navigate("/profile");
+                                setActiveLink("/profile");
                             }
                         }}
                     >
                         {user.name}
                     </h1>
                     : <h1 className="text-sm underline"
-                        onClick={() => navigate("/login")}>
+                          onClick={() => navigate("/login")}>
                         Login
                     </h1>
                 }
                 <i className="ri-logout-circle-r-line ml-2"
-                    onClick={() => {
-                        if (user) {
-                            localStorage.removeItem("token");
-                            navigate("/");
-                            setIsLoggedIn(false);
-                        }
-                    }}
+                   onClick={() => {
+                       if (user) {
+                           localStorage.removeItem("token");
+                           navigate("/");
+                           setIsLoggedIn(false);
+                       }
+                   }}
                 ></i>
 
             </div>

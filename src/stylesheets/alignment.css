@@ -81,6 +81,10 @@
     margin-bottom: 30px;
 }
 
+.mr-5px{
+    margin-right: 5px;
+}
+
 .mr-1 {
     margin-right: 10px;
 }
@@ -205,6 +209,13 @@
 
 .position-rel{
     position:relative;
+}
+
+.absolute.bottom-right {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 5px;
 }
 
 

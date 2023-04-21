@@ -62,7 +62,6 @@ function SearchDetail() {
             getCurrentUser();
         }
         fetchMovie();
-
     }, []);
 
     useEffect(() => {

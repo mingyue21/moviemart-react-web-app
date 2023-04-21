@@ -21,13 +21,13 @@ function Profile() {
                 <Tabs.TabPane tab="Bookmarks" key="2">
                     <BookmarksList />
                 </Tabs.TabPane>
-                
+
                 {user.isUser && (
                     <Tabs.TabPane tab="Bookings" key="3">
                         <Bookings />
                     </Tabs.TabPane>
                 )}
-                
+
                 {user.isOwner && (
                     <Tabs.TabPane tab="Theatres" key="4">
                         <TheatresList />

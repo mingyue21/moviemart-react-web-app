@@ -74,6 +74,14 @@
      top: 25px;
  }
 
+ .movie-name {
+     display: block;
+ }
 
+ @media only screen and (max-width: 768px) {
+     .movie-name {
+         display: none;
+     }
+ }
 
 

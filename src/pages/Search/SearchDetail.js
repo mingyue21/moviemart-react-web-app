@@ -72,18 +72,39 @@ function SearchDetail() {
 
     return (
         <div>
-            <h1>SearchDetail</h1>
-            <Col span={6}>
+            <h1 className="mb-1">SearchDetail</h1>
+            <Col span={10}>
                 <div className="card flex flex-col gap-1 cursor-pointer" >
-                    <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt="" height={200} width={130} />
-                    <div className="flex justify-center p-1">
-                        <h1 className="text-md uppercase">{movie.title}</h1>
-                        <h1 className="text-md uppercase">{movie.popularity}</h1>
-                        <h1 className="text-md uppercase">{movie.release_date}</h1>
-                        <h1 className="text-md uppercase">{movie.overview}</h1>
-                        <h1 className="text-md uppercase">{movie.vote_average}</h1>
+                    <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt="" height={200} width={180} />
+                    <div className=" justify-center p-1">
+                        <div className="flex">
+                            <h1 className="text-md uppercase text-gray mr-5px">Tilte: </h1>
+                            <h1 className="text-md "> {movie.title}</h1>
+                        </div>
+
+                        <div className="flex mt-3px">
+                            <h1 className="text-md uppercase text-gray mr-5px">Popularity: </h1>
+                            <h1 className="text-md "> {movie.popularity}</h1>
+                        </div>
+
+                        <div className="flex mt-3px">
+                            <h1 className="text-md uppercase text-gray mr-5px">Release_date: </h1>
+                            <h1 className="text-md "> {movie.release_date}</h1>
+                        </div>
+
+                        <div className="flex mt-3px">
+                            <h1 className="text-md uppercase text-gray mr-5px">Average Vote: </h1>
+                            <h1 className="text-md "> {movie.vote_average}</h1>
+                        </div>
+
+                        <div className="flex mt-3px">
+                            <h1 className="text-md uppercase text-gray mr-5px">Overview: </h1>
+                            <h1 className="text-md "> {movie.overview}</h1>
+                        </div>
+
                     </div>
                 </div>
+
                 {user && ! isBookmarked ?
                     <Button onClick={() => {
                         bookmarkMovie({name: movie.title, poster: movie.poster_path});

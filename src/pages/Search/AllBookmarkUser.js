@@ -21,12 +21,12 @@ function AllBookmarkUser(props) {
 
     return (
         <div>
-            <h1>Users bookmark this movie</h1>
+            <h1 className="mt-3 text-2xl">Users Bookmark This Movie</h1>
             <div className="list-of-group">
                 {users && users.map((u) => (
-                    <div className="group-item">
-                        <h1>Username {u.name}</h1>
-                        <Button onClick={() => {
+                    <div className="group-item mt-2 flex">
+                        <h1 className="text-lg mr-3">Username: {u.name}</h1>
+                        <Button className="mb-2" onClick={() => {
                             if(user && user._id === u._id){
                                 navigate(`/profile`);
                                 // navigate(`/profile/${user._id}`);
@@ -34,7 +34,9 @@ function AllBookmarkUser(props) {
                                 navigate(`/profile/${u._id}`);
                                 // navigate(`/profile`);
                             }
-                        }}>Profile</Button> 
+                        }}>
+                            <span className="text-gray">Profile</span>
+                        </Button>
                     </div>
 
                 ))}

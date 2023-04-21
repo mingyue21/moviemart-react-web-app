@@ -16,8 +16,17 @@ function Search() {
         navigate(`/search/${search}`);
     };
 
+    const handleSearchChange = async (value) => {
+        setSearch(value);
+        const response = await fullTextSearch(value);
+        setResults(response);
+        navigate(`/search/${value}`);
+    };
+
+
     useEffect(() => {
         if (searchTerm) {
+            setSearch(searchTerm)
             searchMovie();
         }
     }, [searchTerm]);
@@ -25,19 +34,21 @@ function Search() {
     return (
         <div>
             <h1>Search Movie</h1>
-            <input
-                type="text"
-                className="search-input"
-                placeholder="Search for movies"
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-            />
-            <Button onClick={searchMovie} className="float-end btn btn-primary">
-                Search
-            </Button>
+            <div className="position-rel mt-1">
+                <input
+                    type="text"
+                    className="search-input text-md"
+                    placeholder="Search for movies"
+                    value={search}
+                    onChange={(e) => handleSearchChange(e.target.value)}
+                />
+                <Button onClick={searchMovie} className="float-end btn btn-primary flex gap-1 top-15 position-abs right-15">
+                    Search
+                </Button>
+            </div>
 
-            <h2>Movies</h2>
-            <Row gutter={[30]} className="mt-2">
+            <h2 className="mt-1">Movies</h2>
+            <Row gutter={[30,30]} className="mt-2">
                 {results && results.map((movie) => (
                     <Col span={6}>
                         <Link to={`/detail/${movie.id}`}>

@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from 'react-router-dom';
 import { getAllBookmarkedMovies } from "../../services/bookmarks";
 import { useState } from "react";
-import { Row, Col } from 'antd';
+import {Row, Col, Button} from 'antd';
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { HideLoading, ShowLoading } from "../../redux/loadersSlice";
@@ -36,7 +36,9 @@ function Home() {
         <div>
             <div>
                 <Link to="/search">
-                    Search
+                    <Button  size="large" className="btn btn-primary mb-1 text-xl bg-secondary ">
+                        <span className=" pb-1">Search Movies</span>
+                    </Button>
                 </Link>
             </div>
 
@@ -45,18 +47,14 @@ function Home() {
                 {movies && movies.map((movie) => (
                     <Col span={6}>
                         <Link to={`/detail/${movie.movieId}`}>
-                            <div className="card flex">
+                            <div className="card flex flex-col gap-1 cursor-pointer position-rel" >
                                 <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt="" height={200} width={130} />
-                                <div className=" p-1">
-                                    <div>
-                                        <h1 className="text-md">{movie.name}</h1>
-                                    </div>
-
-                                    <div className="absolute bottom-right p-1">
-                                        <h1 className="text-md">
-                                            Bookmark: {movie.bookmarksCount}
-                                        </h1>
-                                    </div>
+                                <div className=" justify-center p-1">
+                                    <h1 className="text-md uppercase">{movie.name}</h1>
+                                    <h1 className="text-md absolute bottom-right">
+                                        <i className="ri-bookmark-line text-secondary mr-5px"></i>
+                                        <span className="text-secondary mr-5px">{movie.bookmarksCount}</span>
+                                    </h1>
                                 </div>
                             </div>
                         </Link>

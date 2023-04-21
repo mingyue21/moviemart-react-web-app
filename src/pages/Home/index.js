@@ -41,15 +41,22 @@ function Home() {
             </div>
 
             <h2>Bookmarked Movies</h2>
-            <Row gutter={[30]} className="mt-2">
+            <Row gutter={[30,30]} className="mt-2">
                 {movies && movies.map((movie) => (
                     <Col span={6}>
                         <Link to={`/detail/${movie.movieId}`}>
-                            <div className="card flex flex-col gap-1 cursor-pointer" >
+                            <div className="card flex">
                                 <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt="" height={200} width={130} />
-                                <div className="flex justify-center p-1">
-                                    <h1 className="text-md uppercase">{movie.name}</h1>
-                                    <h1 className="text-md">Bookmarked {movie.bookmarksCount}</h1>
+                                <div className=" p-1">
+                                    <div>
+                                        <h1 className="text-md">{movie.name}</h1>
+                                    </div>
+
+                                    <div className="absolute bottom-right p-1">
+                                        <h1 className="text-md">
+                                            Bookmark: {movie.bookmarksCount}
+                                        </h1>
+                                    </div>
                                 </div>
                             </div>
                         </Link>

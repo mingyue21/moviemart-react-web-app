@@ -16,8 +16,7 @@ function BookmarksList() {
     const getData = async () => {
       try {
         dispatch(ShowLoading());
-        // const response = await getAllBookmarkedMoviesByUser(user._id);
-        const response = await getAllBookmarkedMovies();
+        const response = await getAllBookmarkedMoviesByUser(user._id);
         if (response.success) {
           setMovies(response.data);
         } else {

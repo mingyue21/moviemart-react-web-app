@@ -8,7 +8,7 @@ export const userBookmarkMovie = async (userId, movieId, payload) => {
 
 // check if user has bookmarked a movie
 export const checkUserBookmarkMovie = async (userId, movieId) => {
-    const response = await axiosInstance.get(`/api/bookmarks/${userId}/${movieId}`);
+    const response = await axiosInstance.get(`/api/bookmarks/get-user-bookmarked/${userId}/${movieId}`);
     return response.data;
 }
 
@@ -25,16 +25,7 @@ export const getAllBookmarkedMoviesByUser = async (userId) => {
 }
 
 // get all bookmarked users by movie
-// export const getAllBookmarkUser = async (movie) => {
-//     console.log(movie)
-//     const movieId = movie.movieId;
-//     console.log(movieId)
-//     const response = await axiosInstance.get(`/api/bookmarks/get-users-by-movie/${movieId}`);
-//     console.log(1)
-//     return response.data;
-// }
 export const getAllBookmarkUser = async (movieId) => {
     const response = await axiosInstance.get(`/api/bookmarks/get-users-by-movie/${movieId}`);
-    console.log("Response:", response.data.data);
     return response.data.data;
 }

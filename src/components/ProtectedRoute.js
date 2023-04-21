@@ -63,7 +63,7 @@ function ProtectedRoute({ children }) {
                     <h1 className="text-xl text-white cursor-pointer ml-1 mr-3 mt-3px p-1px"
                         onClick={() => {
                             if (user) {
-                                navigate("/home")
+                                navigate("/movie")
                             } else {
                                 navigate("/login")
                             }

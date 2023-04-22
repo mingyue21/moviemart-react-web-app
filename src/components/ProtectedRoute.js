@@ -35,8 +35,6 @@ function ProtectedRoute({ children }) {
 
     const [activeLink, setActiveLink] = useState("/");
 
-    const current = window.location.pathname;
-
     useEffect(() => {
         setIsLoggedIn(!!user);
     }, [user]);

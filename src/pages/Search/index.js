@@ -33,27 +33,25 @@ function Search() {
 
     return (
         <div>
-            <h1>Search Movie</h1>
             <div className="position-rel mt-1">
                 <input
                     type="text"
-                    className="search-input text-md"
+                    className="search-input text-md search-bar"
                     placeholder="Search for movies"
                     value={search}
                     onChange={(e) => handleSearchChange(e.target.value)}
                 />
-                <Button onClick={searchMovie} className="float-end btn btn-primary flex gap-1 top-15 position-abs right-15">
+                {/* <Button onClick={searchMovie} className="float-end btn btn-primary flex gap-1 top-15 position-abs right-15">
                     Search
-                </Button>
+                </Button> */}
             </div>
 
-            <h2 className="mt-1">Movies</h2>
             <Row gutter={[30,30]} className="mt-2">
                 {results && results.map((movie) => (
                     <Col span={6}>
                         <Link to={`/detail/${movie.id}`}>
                             <div className="card flex flex-col gap-1 cursor-pointer" >
-                                <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt="" height={200} width={130} />
+                                <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt="" height={200} width={130} style={{ margin: 0, borderRadius: '5px 5px 5px 5px' }} />
                                 <div className="flex justify-center p-1">
                                     <h1 className="text-md uppercase">{movie.title}</h1>
                                 </div>

@@ -60,7 +60,6 @@ function OtherProfile() {
 
                     {/* bookmarks */}
                     <Tabs.TabPane tab="Bookmarks" key="3">
-                        <h2>Bookmarked Movies</h2>
                         <Row gutter={[30, 30]} className="mt-2">
                             {movies && movies.map((movie) => (
                                 <Col span={6}>

@@ -66,7 +66,7 @@ function ProtectedRoute({ children }) {
                     }}>Home</h1>
                 </div>
 
-                <div>
+                <div className="hide-on-mobile">
                     <h1
                         className={`text-xl text-white cursor-pointer ml-1 mr-3 mt-3px p-1px ${activeLink === "/movie" ? " white-underline" : ""}`}
                         onClick={() => {
@@ -80,7 +80,7 @@ function ProtectedRoute({ children }) {
                         }}
                     >Movie</h1>
                 </div>
-                <div>
+                <div  className="hide-on-mobile">
                     <h1
                         className={`text-xl text-white cursor-pointer ml-1 mr-3 mt-3px p-1px ${activeLink === "/profile" || activeLink === "/admin" ? "white-underline" : ""}`}
                         onClick={() => {
@@ -100,7 +100,7 @@ function ProtectedRoute({ children }) {
                 </div>
             </div>
 
-            <div className="bg-white p-1 flex gap-1 float-end top-25 position-abs right-15">
+            <div className="bg-white p-1 flex gap-1 float-end top-25 position-abs right-15" style={{ backgroundColor: 'rgb(245, 245, 245)', borderRadius: '5px' }}>
                 <i className="ri-shield-user-line text-primary"></i>
                 {isLoggedIn ?
                     <h1 className= {`text-sm cursor-pointer ${activeLink === "/profile" || activeLink === "/admin" ? "white-underline" : ""}`}

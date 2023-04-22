@@ -82,11 +82,10 @@ function SearchDetail() {
 
     return (
         <div>
-            <h1 className="mb-1">SearchDetail</h1>
-            <Col span={10}>
-                <div className="card flex flex-col gap-1 cursor-pointer" >
+            <Col>
+                <div className="card flex flex-col gap-1 cursor-pointer" style={{ position: 'relative' }}>
                     <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt="" height={200} width={180} />
-                    <div className=" justify-center p-1">
+                    <div className="justify-center p-1" >
                         <div className="flex">
                             <h1 className="text-md uppercase text-gray mr-5px">Tilte: </h1>
                             <h1 className="text-md "> {movie.title}</h1>
@@ -111,21 +110,19 @@ function SearchDetail() {
                             <h1 className="text-md uppercase text-gray mr-5px">Overview: </h1>
                             <h1 className="text-md "> {movie.overview}</h1>
                         </div>
-
                     </div>
+                    {user && !isBookmarked ?
+                        <Button onClick={handleBookmarkClick} className="float-end btn btn-primary" style={{ position: 'absolute', top: '10px', right: '10px' }}>
+                            Bookmark
+                        </Button> :
+                        <Button className="float-end btn btn-primary" style={{ position: 'absolute', top: '10px', right: '10px' }} disabled={true}>
+                            Bookmark
+                        </Button>
+                    }
                 </div>
-
-                {user && !isBookmarked ?
-                    <Button onClick={handleBookmarkClick} className="float-end btn btn-primary">
-                        Bookmark
-                    </Button> :
-                    <Button className="float-end btn btn-primary" disabled={true}>
-                        Bookmark
-                    </Button>
-                }
+                <AllBookmarkUser movieId={id} onUpdate={triggerUpdate} />
             </Col>
 
-            <AllBookmarkUser movieId={id} onUpdate={triggerUpdate} />
 
         </div>
 

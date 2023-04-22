@@ -21,27 +21,35 @@ function AllBookmarkUser(props) {
 
     return (
         <div>
-            <h1 className="mt-3 text-2xl">Users Bookmark This Movie</h1>
+            <div className="mt-3 title-box">
+                <h2 className="section-title">Bookmarked Movies</h2>
+            </div>
             <div className="list-of-group">
-                {users && users.map((u) => (
-                    <div className="group-item mt-2 flex">
-                        <h1 className="text-lg mr-3">Username: {u.name}</h1>
-                        <Button className="mb-2" onClick={() => {
-                            if(user && user._id === u._id){
-                                navigate(`/profile`);
-                                // navigate(`/profile/${user._id}`);
-                            } else {
-                                navigate(`/profile/${u._id}`);
-                                // navigate(`/profile`);
-                            }
-                        }}>
-                            <span className="text-gray">Profile</span>
-                        </Button>
-                    </div>
-
-                ))}
+                {users &&
+                    users.map((u) => (
+                        <div className="user-card group-item mt-2">
+                            <h1 className="text-lg mr-3">{u.name}</h1>
+                            <Button
+                                className="mb-2"
+                                onClick={() => {
+                                    if (user && user._id === u._id) {
+                                        navigate(`/profile`);
+                                        // navigate(`/profile/${user._id}`);
+                                    } else {
+                                        navigate(`/profile/${u._id}`);
+                                        // navigate(`/profile`);
+                                    }
+                                }}
+                            >
+                                <span className="text-gray">Profile</span>
+                            </Button>
+                        </div>
+                    ))}
             </div>
         </div>
+
+
+
     )
 }
 

@@ -37,12 +37,15 @@ function MyMovies() {
             </div>
             <Row gutter={[16, 16]}>
                 {movies && movies.map((movie) => (
-                    <Col span={24} >
+                    <Col span={24} xs={24} sm={24} md={12} lg={12} xl={12} >
                         <div className="movie-card">
                             <div className="movie-poster-container" >
                                 <img className="movie-poster" src={movie.poster} alt="" height={200} width={130} />
                             </div>
-                            <div className="movie-info uppercase" style={{ marginLeft: '20px' }}>{movie.title}</div>
+                            <div style={{
+                                marginLeft: '20px',
+                                overflow: "hidden",
+                                textOverflow: "ellipsis"}} className="movie-info uppercase" >{movie.title}</div>
                         </div>
 
                     </Col>

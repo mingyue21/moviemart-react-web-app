@@ -3,7 +3,7 @@ import { Col, message, Row } from "antd";
 import { useDispatch } from "react-redux";
 import { HideLoading, ShowLoading } from "../../redux/loadersSlice";
 import { GetAllMovies } from "../../services/movies";
-import { useNavigate } from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import moment from "moment";
 
 
@@ -45,25 +45,23 @@ function Movie() {
         {movies
         .filter((movie) => movie.title.toLowerCase().includes(searchText.toLowerCase()))
         .map((movie) => (
-          <Col span={6} >
-            <div className="card flex flex-col gap-1 cursor-pointer"
-              onClick={() =>
-                navigate(
-                  `/movie/${movie._id}?date=${moment().format("YYYY-MM-DD")}`
-                )
-              }
-            >
-              <img src={movie.poster} alt="" height={200} />
 
-              <div className="justify-center p-1 text-md uppercase">
-                <span>{movie.title}</span>
-              </div>
-
-
+          <Col span={6} xs={24} sm={12} md={12} lg={6} xl={6} >
+            <div className="movie-card flex flex-col gap-1 cursor-pointer"
+                 onClick={() =>
+                   navigate(
+                    `/movie/${movie._id}?date=${moment().format("YYYY-MM-DD")}`)}>
+            <div className="movie-poster-container" >
+            <img className="movie-poster" src={movie.poster} alt="" height={200} width={130} />
+            </div>
+            <div style={{
+            marginLeft: '20px',
+            overflow: "hidden",
+            textOverflow: "ellipsis"}} className="movie-info uppercase" >{movie.title}</div>
             </div>
 
-
           </Col>
+
         ))}
       </Row>
     </div>

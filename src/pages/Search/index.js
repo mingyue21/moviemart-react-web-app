@@ -48,11 +48,14 @@ function Search() {
 
             <Row gutter={[30,30]} className="mt-2">
                 {results && results.map((movie) => (
-                    <Col span={6}>
+                    <Col span={6} xs={24} sm={12} md={12} lg={6} xl={6}>
                         <Link to={`/detail/${movie.id}`}>
                             <div className="card flex flex-col gap-1 cursor-pointer" >
                                 <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt="" height={200} width={130} style={{ margin: 0, borderRadius: '5px 5px 5px 5px' }} />
-                                <div className="flex justify-center p-1">
+                                <div className="flex justify-center p-1" style={{
+                                    overflow: "hidden",
+                                    textOverflow: "ellipsis"
+                                }}>
                                     <h1 className="text-md uppercase">{movie.title}</h1>
                                 </div>
                             </div>

@@ -21,7 +21,6 @@ function Profile() {
 
     return (
         <div>
-            <PageTitle title="Profile" />
 
             <Tabs defaultActiveKey="1">
                 <Tabs.TabPane tab="Personal Information" key="1">

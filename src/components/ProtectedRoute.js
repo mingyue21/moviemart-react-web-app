@@ -50,14 +50,14 @@ function ProtectedRoute({ children }) {
         <div className="layout p-1 position-rel">
             <div className="header bg-primary flex  p-2">
                 <div>
-                    <h1 className="text-2xl text-white mr-3"
+                    <h1 className="text-2xl text-white"
                         // onClick={() => {
                         //     navigate("/")
                         // }
                     >MOVIEMART</h1>
                 </div>
 
-                <div>
+                <div className="mr-1">
                     <h1
                         className={`text-xl text-white cursor-pointer ml-8 mr-3 mt-3px ${activeLink === "/" ? " white-underline" : ""}`}
                         onClick={() => {
@@ -101,7 +101,7 @@ function ProtectedRoute({ children }) {
             </div>
 
             <div className="bg-white p-1 flex gap-1 float-end top-25 position-abs right-15" style={{ backgroundColor: 'rgb(245, 245, 245)', borderRadius: '5px' }}>
-                <i className="ri-shield-user-line text-primary"></i>
+                <i className="ri-shield-user-line text-primary"/>
                 {isLoggedIn ?
                     <h1 className= {`text-sm cursor-pointer ${activeLink === "/profile" || activeLink === "/admin" ? "white-underline" : ""}`}
                         onClick={() => {
@@ -122,16 +122,16 @@ function ProtectedRoute({ children }) {
                     </h1>
                 }
                 <i className="ri-logout-circle-r-line ml-2"
-                   onClick={() => {
-                       if (user) {
-                           localStorage.removeItem("token");
-                           navigate("/");
-                           setIsLoggedIn(false);
-                           dispatch(Logout());
-                           setActiveLink("/")
-                       }
-                   }}
-                ></i>
+    onClick={() => {
+        if (user) {
+            localStorage.removeItem("token");
+            navigate("/");
+            setIsLoggedIn(false);
+            dispatch(Logout());
+            setActiveLink("/")
+        }
+    }}
+    />
 
             </div>
 

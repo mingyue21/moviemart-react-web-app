@@ -37,7 +37,7 @@ function BookmarksList() {
         <div>
             <Row gutter={[30,30]} className="mt-2">
                 {movies && movies.map((movie) => (
-                    <Col span={6}>
+                    <Col span={6} span={24} xs={24} sm={12} md={12} lg={6} xl={6}>
                         <Link to={`/detail/${movie.movieId}`}>
 
                             <div className="card flex flex-col gap-1 cursor-pointer position-rel">

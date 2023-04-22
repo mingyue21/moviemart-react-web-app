@@ -32,7 +32,9 @@ function MyMovies() {
 
     return (
         <div>
-            <h2 className="section-title">My Movies</h2>
+            <div className="title-box">
+                <h2 className="section-title">My Movies</h2>
+            </div>
             <Row gutter={[16, 16]}>
                 {movies && movies.map((movie) => (
                     <Col span={24} >
@@ -40,7 +42,7 @@ function MyMovies() {
                             <div className="movie-poster-container" >
                                 <img className="movie-poster" src={movie.poster} alt="" height={200} width={130} />
                             </div>
-                            <div className="movie-info uppercase" style={{ marginLeft: '20px'}}>{movie.title}</div>
+                            <div className="movie-info uppercase" style={{ marginLeft: '20px' }}>{movie.title}</div>
                         </div>
 
                     </Col>

@@ -41,23 +41,25 @@ function Home() {
         <div>
             <div>
                 <Link to="/search">
-                    <Button size="large" className="btn btn-primary mb-1 text-xl bg-secondary ">
-                        <span className=" pb-1">Search Movies</span>
+                    <Button size="large" className="btn btn-primary mb-1 text-xl bg-secondary">
+                        <span className="pb-1">Search Movies</span>
                     </Button>
                 </Link>
             </div>
 
             <Row gutter={[50, 10]} className="mt-2">
-                <Col span={16}>
-                    <h2 className="section-title">Bookmarked Movies</h2>
+                <Col xs={24} sm={24} md={24} lg={16} xl={16}>
+                    <div className="title-box">
+                        <h2 className="section-title">Bookmarked Movies</h2>
+                    </div>
                     <Row gutter={[30, 30]}>
                         {movies && movies.map((movie) => (
-                            <Col span={12}>
+                            <Col xs={24} sm={12} md={12} lg={12} xl={12}>
                                 <Link to={`/detail/${movie.movieId}`}>
 
                                     <div className="card flex flex-col gap-1 cursor-pointer position-rel">
                                         <div>
-                                            <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt="" height={200} width={130} />
+                                            <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt="" height={200} width={130} style={{ margin: 0, borderRadius: '5px 5px 5px 5px' }} />
                                         </div>
 
                                         <div style={{
@@ -66,7 +68,7 @@ function Home() {
                                         }}>
                                             <h1 className="justify-center p-1 text-md uppercase">{movie.name}</h1>
                                             <h1 className="text-md absolute bottom-right">
-                                                <i className="ri-bookmark-line text-secondary mr-5px"/>
+                                                <i className="ri-bookmark-line text-secondary mr-5px" />
                                                 <span className="text-secondary mr-5px">{movie.bookmarksCount}</span>
                                             </h1>
                                         </div>
@@ -78,7 +80,7 @@ function Home() {
                     </Row>
                 </Col>
 
-                <Col span={8}>
+                <Col xs={0} sm={0} md={0} lg={8} xl={8}>
                     {user && user.isAdmin && (
                         <div>
                             <MyMovies />
@@ -98,7 +100,7 @@ function Home() {
                     )}
 
                     {!user && (
-                        <div>
+                        <div className="title-box">
                             <h2 className="section-title">Login to see more...</h2>
                         </div>
                     )}

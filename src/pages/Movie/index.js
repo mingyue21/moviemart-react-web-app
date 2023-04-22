@@ -35,7 +35,7 @@ function Movie() {
     <div>
       <input
         type="text"
-        className="search-input"
+        className="search-input search-bar text-md"
         placeholder="Search for movies"
         value={searchText}
         onChange={(e) => setSearchText(e.target.value)}

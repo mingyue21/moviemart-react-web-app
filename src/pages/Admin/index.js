@@ -5,6 +5,7 @@ import MoviesList from "./MoviesList";
 import TheatresList from "./TheatersList";
 import BookmarksList from "../Profile/BookmarksList";
 import PersonalInformation from "../Profile/PersonalInformation";
+import Bookings from "../Profile/Bookings";
 
 function Admin() {
     return (
@@ -17,12 +18,16 @@ function Admin() {
                 <Tabs.TabPane tab="Bookmarks" key="2">
                     <BookmarksList />
                 </Tabs.TabPane>
+
+                <Tabs.TabPane tab="Bookings" key="3">
+                    <Bookings />
+                </Tabs.TabPane>
                 
-                <Tabs.TabPane tab="Movies" key="3">
+                <Tabs.TabPane tab="Movies" key="4">
                     <MoviesList />
                 </Tabs.TabPane>
 
-                <Tabs.TabPane tab="Theatres" key="4">
+                <Tabs.TabPane tab="Theatres" key="5">
                     <TheatresList />
                 </Tabs.TabPane>
             </Tabs>

@@ -54,7 +54,6 @@ function PersonalInformation() {
 
     return (
         <div>
-            <PageTitle title="Personal Information" />
             <form className="pb-2" >
 
                 <label htmlFor="name">Name:</label>

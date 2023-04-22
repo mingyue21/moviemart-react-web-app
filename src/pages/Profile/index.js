@@ -17,7 +17,7 @@ function Profile() {
         if (!user) {
             navigate("/");
         }
-    }, [user, navigate]);
+    }, []);
 
     return (
         <div>
@@ -32,13 +32,11 @@ function Profile() {
                     <BookmarksList />
                 </Tabs.TabPane>
 
-                {user.isUser && (
-                    <Tabs.TabPane tab="Bookings" key="3">
-                        <Bookings />
-                    </Tabs.TabPane>
-                )}
+                <Tabs.TabPane tab="Bookings" key="3">
+                    <Bookings />
+                </Tabs.TabPane>
 
-                {user.isOwner && (
+                { user.isOwner && (
                     <Tabs.TabPane tab="Theatres" key="4">
                         <TheatresList />
                     </Tabs.TabPane>

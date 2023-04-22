@@ -1,6 +1,8 @@
 .card {
-    background-color: white;
-    border: 1px solid #b1b1b1;
+    background-color: #f5f5f5;
+    border: #b1b1b1;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
   }
   
   .w-400 {
@@ -119,12 +121,10 @@
   .section-title {
     font-size: 24px;
     font-weight: bold;
-    color: #3c3c3c;
+    color: white;
     text-align: center;
-    margin-bottom: 20px;
-    border-bottom: 3px solid #3c3c3c;
-    display: inline-block;
-    padding-bottom: 5px;
+    display: flex;
+    margin-bottom: 0px !important;
   }
 
   .booking-card {
@@ -187,7 +187,6 @@
 .movie-card {
   display: flex;
   background-color: #f5f5f5;
-  padding: 15px;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   margin-bottom: 16px;
@@ -207,4 +206,42 @@
 
 .movie-poster {
   border-radius: 5px;
+}
+
+.search-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  background-color: #f5f5f5;
+  border: #b1b1b1;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.title-box {
+  background-color: #002e2ab7;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 20px 20px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 767px) {
+  .hide-on-mobile {
+    display: none;
+  }
+}
+
+.user-card {
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }

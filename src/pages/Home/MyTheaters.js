@@ -34,7 +34,9 @@ function MyTheaters() {
 
     return (
         <div>
-        <h2 className="section-title">My Theaters</h2>
+        <div className="title-box">
+                <h2 className="section-title">My Theaters</h2>
+            </div>
 
         <Row gutter={[16, 16]}>
             {theaters && theaters.map((theater) => (

@@ -57,6 +57,16 @@ function SearchDetail() {
         }
     }
 
+    const [bookmarkUpdate, setBookmarkUpdate] = useState(false);
+    const triggerUpdate = () => {
+        setBookmarkUpdate(!bookmarkUpdate);
+    };
+    const handleBookmarkClick = async () => {
+        bookmarkMovie({ name: movie.title, poster: movie.poster_path });
+        setBookmarked(true);
+        triggerUpdate();
+    };
+
     useEffect(() => {
         if (localStorage.getItem('token')) {
             getCurrentUser();
@@ -105,11 +115,8 @@ function SearchDetail() {
                     </div>
                 </div>
 
-                {user && ! isBookmarked ?
-                    <Button onClick={() => {
-                        bookmarkMovie({name: movie.title, poster: movie.poster_path});
-                        setBookmarked(true);
-                    }} className="float-end btn btn-primary">
+                {user && !isBookmarked ?
+                    <Button onClick={handleBookmarkClick} className="float-end btn btn-primary">
                         Bookmark
                     </Button> :
                     <Button className="float-end btn btn-primary" disabled={true}>
@@ -118,7 +125,7 @@ function SearchDetail() {
                 }
             </Col>
 
-            <AllBookmarkUser movieId={id}/>
+            <AllBookmarkUser movieId={id} onUpdate={triggerUpdate} />
 
         </div>
 

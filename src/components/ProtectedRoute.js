@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { SetUser } from "../redux/usersSlice";
 import { HideLoading, ShowLoading } from "../redux/loadersSlice";
 import "../stylesheets/alignment.css";
+import { Logout } from "../redux/usersSlice";
 
 function ProtectedRoute({ children }) {
     const { user } = useSelector((state) => state.users);
@@ -126,6 +127,8 @@ function ProtectedRoute({ children }) {
                            localStorage.removeItem("token");
                            navigate("/");
                            setIsLoggedIn(false);
+                           dispatch(Logout());
+                           setActiveLink("/")
                        }
                    }}
                 ></i>

@@ -40,17 +40,24 @@ function BookmarksList() {
                 {movies && movies.map((movie) => (
                     <Col span={6}>
                         <Link to={`/detail/${movie.movieId}`}>
-                            <div className="card flex flex-col gap-1 cursor-pointer position-rel" >
-                                <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt="" height={200} width={130} />
 
-                                <div className=" justify-center p-1">
-                                    <h1 className="text-md uppercase">{movie.name}</h1>
+                            <div className="card flex flex-col gap-1 cursor-pointer position-rel">
+                                <div>
+                                    <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt="" height={200} width={130} />
+                                </div>
+
+                                <div style={{
+                                    overflow: "hidden",
+                                    textOverflow: "ellipsis"
+                                }}>
+                                    <h1 className="justify-center p-1 text-md uppercase">{movie.name}</h1>
                                     <h1 className="text-md absolute bottom-right">
-                                        <i className="ri-bookmark-line text-secondary mr-5px"></i>
+                                        <i className="ri-bookmark-line text-secondary mr-5px"/>
                                         <span className="text-secondary mr-5px">{movie.bookmarksCount}</span>
                                     </h1>
                                 </div>
                             </div>
+
                         </Link>
                     </Col>
                 ))}

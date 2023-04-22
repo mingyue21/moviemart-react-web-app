@@ -17,7 +17,7 @@ function AllBookmarkUser(props) {
 
     useEffect(() => {
         fetchUsers();
-    }, []);
+    }, [[props.onUpdate]]);
 
     return (
         <div>

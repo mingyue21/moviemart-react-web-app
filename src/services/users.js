@@ -31,9 +31,9 @@ export const GetCurrentUser = async () => {
 };
 
 //Update personal information
-export const UpdatePersonalInfo = async (payload) => {
+export const UpdatePersonalInfo = async ( payload) => {
     try {
-        const response = await axiosInstance.post("/api/users/update-personal-info", payload);
+        const response = await axiosInstance.put("/api/users/update-personal-info", payload);
         return response.data;
     } catch (error) {
         return error;

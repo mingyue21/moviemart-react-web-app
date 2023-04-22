@@ -33,16 +33,16 @@ function MyTheaters() {
 
     return (
         <div>
-            <h1>My Theaters</h1>
-            {theaters && theaters.map((theater) => (
-                <div>
-                    <div>Theater Name: {theater.name}</div>
-                    <div>Theater Name: {theater.address}</div>
-                    <div>Theater Name: {theater.phone}</div>
-                    <div>Theater Name: {theater.email}</div>
-                </div>
-            ))}
-        </div>
+        <h2 className="section-title">My Theaters</h2>
+        {theaters && theaters.map((theater) => (
+            <div className="theater-card">
+                <div className="theater-info">Theater Name: {theater.name}</div>
+                <div className="theater-info">Address: {theater.address}</div>
+                <div className="theater-info">Phone: {theater.phone}</div>
+                <div className="theater-info">Email: {theater.email}</div>
+            </div>
+        ))}
+    </div>
     )
 }
 export default MyTheaters;

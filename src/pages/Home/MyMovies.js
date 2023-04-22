@@ -1,8 +1,8 @@
-import React, {useEffect} from "react";
-import {HideLoading, ShowLoading} from "../../redux/loadersSlice";
-import {message} from "antd";
-import {GetAllMovies} from "../../services/movies";
-import {useDispatch} from "react-redux";
+import React, { useEffect } from "react";
+import { HideLoading, ShowLoading } from "../../redux/loadersSlice";
+import { message } from "antd";
+import { GetAllMovies } from "../../services/movies";
+import { useDispatch } from "react-redux";
 
 
 function MyMovies() {
@@ -32,14 +32,18 @@ function MyMovies() {
 
     return (
         <div>
-            <h1>My Movies</h1>
-        {movies && movies.map((movie) => (
-            <div>
-                <div>Movie Name: {movie.title}</div>
-                <img src={movie.poster} alt={movie.title} height={200} width={130} />
-            </div>
-        ))}
-    </div>
+            <h2 className="section-title">My Movies</h2>
+            {movies && movies.map((movie) => (
+                <div className="movie-card">
+                    <div className="movie-poster-container">
+                        <img className="movie-poster" src={movie.poster} alt={movie.title} height={200} width={130} />
+                    </div>
+                    <div className="movie-info uppercase" style={{ marginLeft: '20px' }}>{movie.title}</div>
+                </div>
+            ))}
+        </div>
+
+
     )
 }
 export default MyMovies;

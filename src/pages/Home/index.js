@@ -47,52 +47,57 @@ function Home() {
                 </Link>
             </div>
 
-            <h2>Bookmarked Movies</h2>
-            <Row gutter={[30, 30]} className="mt-2">
-                {movies && movies.map((movie) => (
-                    <Col span={6}>
-                        <Link to={`/detail/${movie.movieId}`}>
-                            <div className="card flex flex-col gap-1 cursor-pointer position-rel" >
-                                <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt="" height={200} width={130} />
-                                <div className=" justify-center p-1">
-                                    <h1 className="text-md uppercase">{movie.name}</h1>
-                                    <h1 className="text-md absolute bottom-right">
-                                        <i className="ri-bookmark-line text-secondary mr-5px"></i>
-                                        <span className="text-secondary mr-5px">{movie.bookmarksCount}</span>
-                                    </h1>
-                                </div>
-                            </div>
-                        </Link>
-                    </Col>
-                ))}
+            <Row gutter={[50, 10]} className="mt-2">
+                <Col span={16}>
+                    <h2 className="section-title">Bookmarked Movies</h2>
+                    <Row gutter={[30, 30]}>
+                        {movies && movies.map((movie) => (
+                            <Col span={12}>
+                                <Link to={`/detail/${movie.movieId}`}>
+                                    <div className="card flex flex-col gap-1 cursor-pointer position-rel">
+                                        <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt="" height={200} width={130} />
+                                        <div className="justify-center p-1">
+                                            <h1 className="text-md uppercase">{movie.name}</h1>
+                                            <h1 className="text-md absolute bottom-right">
+                                                <i className="ri-bookmark-line text-secondary mr-5px"></i>
+                                                <span className="text-secondary mr-5px">{movie.bookmarksCount}</span>
+                                            </h1>
+                                        </div>
+                                    </div>
+                                </Link>
+                            </Col>
+                        ))}
+                    </Row>
+                </Col>
+
+                <Col span={8}>
+                    {user && user.isAdmin && (
+                        <div>
+                            <MyMovies />
+                        </div>
+                    )}
+
+                    {user && user.isOwner && (
+                        <div>
+                            <MyTheaters />
+                        </div>
+                    )}
+
+                    {user && user.isUser && (
+                        <div>
+                            <MyBookings />
+                        </div>
+                    )}
+
+                    {!user && (
+                        <div>
+                            <h2 className="section-title">Login to see more...</h2>
+                        </div>
+                    )}
+                </Col>
             </Row>
-
-            {user && user.isAdmin && (
-                <div>
-                    <MyMovies />
-                </div>
-            )}
-
-            {user && user.isOwner && (
-                <div>
-                    <MyTheaters />
-                </div>
-            )}
-
-            {user && user.isUser && (
-                <div>
-                    <MyBookings />
-                </div>
-            )}
-
-            {!user && (
-                <div>
-                    <h2>Login to see more... </h2>
-                    </div>)}
-
-
-
         </div>
+
 
 
     )

@@ -33,46 +33,48 @@ function MyBookings() {
     }, []);
     return (
         <div>
-            <h1>My Bookings</h1>
-            <Row gutter={[16, 16]}>
-                {bookings.map((booking) => (
-                    <Col span={12}>
-                        <div className="card p-2 flex justify-between uppercase">
-                            <div>
+            <div>
+        <h2 className="section-title">My Bookings</h2>
+        <Row gutter={[16, 16]}>
+            {bookings.map((booking) => (
+                <Col span={12}>
+                    <div className="booking-card">
+                        <div>
+                            <h3 className="booking-movie-title">
+                                {booking.show.movie.title} ({booking.show.movie.language})
+                            </h3>
+                            <div className="divider"></div>
+                            <p className="booking-info">
+                                {booking.show.theatre.name} ({booking.show.theatre.address})
+                            </p>
+                            <p className="booking-info">
+                                Date & Time: {moment(booking.show.date).format("MMM Do YYYY")}{" "}
+                                - {moment(booking.show.time, "HH:mm").format("hh:mm A")}
+                            </p>
 
-                                <h1 className="text-xl">
-                                    {booking.show.movie.title} ({booking.show.movie.language})
-                                </h1>
-                                <div className="divider"></div>
-                                <h1 className="text-sm">
-                                    {booking.show.theatre.name} ({booking.show.theatre.address})
-                                </h1>
-                                <h1 className="text-sm">
-                                    Date & Time: {moment(booking.show.date).format("MMM Do YYYY")}{" "}
-                                    - {moment(booking.show.time, "HH:mm").format("hh:mm A")}
-                                </h1>
-
-                                <h1 className="text-sm">
-                                    Amount : $ {booking.show.ticketPrice * booking.seats.length}
-                                </h1>
-                                <h1 className="text-sm">Booking ID: {booking._id}</h1>
-                            </div>
-
-                            <div>
-                                <img
-                                    src={booking.show.movie.poster}
-                                    alt=""
-                                    height={100}
-                                    width={100}
-                                    className="br-1"
-                                />
-                                <h1 className="text-sm">Seats: {booking.seats.join(", ")}</h1>
-                            </div>
+                            <p className="booking-info">
+                                Amount : $ {booking.show.ticketPrice * booking.seats.length}
+                            </p>
+                            <p className="booking-info">Booking ID: {booking._id}</p>
                         </div>
-                    </Col>
-                ))}
-            </Row>
+
+                        <div className="booking-image">
+                            <img
+                                src={booking.show.movie.poster}
+                                alt={`${booking.show.movie.title} poster`}
+                                height={100}
+                                width={100}
+                                className="br-1"
+                            />
+                            <p className="booking-info">Seats: {booking.seats.join(", ")}</p>
+                        </div>
+                    </div>
+                </Col>
+            ))}
+        </Row>
+    </div>
         </div>
+        
     );
 }
 

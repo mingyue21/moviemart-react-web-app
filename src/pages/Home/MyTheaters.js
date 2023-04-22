@@ -4,6 +4,7 @@ import { message } from "antd";
 import { useDispatch } from "react-redux";
 import { GetAllTheatresByOwner } from "../../services/theatres";
 import { useSelector } from "react-redux";
+import { Row, Col } from "antd";
 
 function MyTheaters() {
     const { user } = useSelector((state) => state.users);
@@ -34,14 +35,19 @@ function MyTheaters() {
     return (
         <div>
         <h2 className="section-title">My Theaters</h2>
-        {theaters && theaters.map((theater) => (
-            <div className="theater-card">
-                <div className="theater-info">Theater Name: {theater.name}</div>
-                <div className="theater-info">Address: {theater.address}</div>
-                <div className="theater-info">Phone: {theater.phone}</div>
-                <div className="theater-info">Email: {theater.email}</div>
-            </div>
-        ))}
+
+        <Row gutter={[16, 16]}>
+            {theaters && theaters.map((theater) => (
+                <Col span={24}>
+                    <div className="theater-card">
+                        <div className="theater-info">Theater Name: {theater.name}</div>
+                        <div className="theater-info">Address: {theater.address}</div>
+                        <div className="theater-info">Phone: {theater.phone}</div>
+                        <div className="theater-info">Email: {theater.email}</div>
+                    </div>
+                </Col>
+            ))}
+        </Row>
     </div>
     )
 }

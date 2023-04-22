@@ -37,10 +37,10 @@ function MyBookings() {
         <h2 className="section-title">My Bookings</h2>
         <Row gutter={[16, 16]}>
             {bookings.map((booking) => (
-                <Col span={12}>
-                    <div className="booking-card">
+                <Col span={24}>
+                    <div className="booking-card" style={{display: 'flex', justifyContent: 'space-between'}}>
                         <div>
-                            <h3 className="booking-movie-title">
+                            <h3 className="booking-movie-title uppercase">
                                 {booking.show.movie.title} ({booking.show.movie.language})
                             </h3>
                             <div className="divider"></div>
@@ -58,7 +58,7 @@ function MyBookings() {
                             <p className="booking-info">Booking ID: {booking._id}</p>
                         </div>
 
-                        <div className="booking-image">
+                        <div className="booking-image" style={{marginLeft: 'auto'}}>
                             <img
                                 src={booking.show.movie.poster}
                                 alt={`${booking.show.movie.title} poster`}

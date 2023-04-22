@@ -42,10 +42,10 @@ function PersonalInformation() {
     };
 
     const handleReset = () => {
-        setName(originalUserData.name);
-        setAge(originalUserData.age);
-        setEmail(originalUserData.email);
-        setPhoneNumber(originalUserData.phoneNumber);
+        setName(user.name);
+        setAge(user.age);
+        setEmail(user.email);
+        setPhoneNumber(user.phoneNumber);
     };
 
     const handleCancel = () => {

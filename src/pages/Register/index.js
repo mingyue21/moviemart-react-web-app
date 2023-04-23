@@ -105,7 +105,7 @@ function Register() {
                         <Form.Item
                             label="Role"
                             name="role"
-                            // initialValue={false}
+                            //initialValue={false}
                             rules={[{ required:true, message: "Please select a role"}]}
                         >
                             <Select>

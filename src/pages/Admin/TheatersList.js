@@ -27,7 +27,7 @@ function TheatresList() {
     const handleStatusChange = async (theatre) => {
         try {
             dispatch(ShowLoading());
-            const response = await UpdateTheatre({
+            const response = await UpdateTheatre(theatre._id, {
                 theatreId: theatre._id,
                 ...theatre,
                 isActive: !theatre.isActive,

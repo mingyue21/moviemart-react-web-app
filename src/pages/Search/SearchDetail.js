@@ -84,7 +84,7 @@ function SearchDetail() {
         <div>
             <Col>
                 <div className="card flex flex-col gap-1 cursor-pointer" style={{ position: 'relative' }}>
-                    <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt="" height={200} width={180} />
+                    <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt="" height={200} width={180} style={{ margin: 0, borderRadius: '5px 5px 5px 5px' }}/>
                     <div className="justify-center p-1" >
                         <div className="flex">
                             <h1 className="text-md uppercase text-gray mr-5px">Tilte: </h1>

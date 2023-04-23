@@ -46,7 +46,7 @@ function Movie() {
         .filter((movie) => movie.title.toLowerCase().includes(searchText.toLowerCase()))
         .map((movie) => (
 
-          <Col span={6} xs={24} sm={12} md={12} lg={6} xl={6} >
+          <Col xs={24} sm={24} md={12} lg={6} xl={6} >
             <div className="movie-card flex flex-col gap-1 cursor-pointer"
                  onClick={() =>
                    navigate(

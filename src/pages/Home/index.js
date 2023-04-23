@@ -54,7 +54,7 @@ function Home() {
                     </div>
                     <Row gutter={[30, 30]}>
                         {movies && movies.map((movie) => (
-                            <Col xs={24} sm={12} md={12} lg={12} xl={12}>
+                            <Col xs={24} sm={24} md={12} lg={12} xl={12}>
                                 <Link to={`/detail/${movie.movieId}`}>
 
                                     <div className="card flex flex-col gap-1 cursor-pointer position-rel">

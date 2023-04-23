@@ -62,10 +62,10 @@ function OtherProfile() {
                     <Tabs.TabPane tab="Bookmarks" key="3">
                         <Row gutter={[30, 30]} className="mt-2">
                             {movies && movies.map((movie) => (
-                                <Col span={6}>
+                                <Col xs={24} sm={24} md={12} lg={6} xl={6}>
                                     <Link to={`/detail/${movie.movieId}`}>
                                         <div className="card flex flex-col gap-1 cursor-pointer position-rel" >
-                                            <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt="" height={200} width={130} />
+                                            <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt="" height={200} width={130} style={{ margin: 0, borderRadius: '5px 5px 5px 5px' }} />
 
                                             <div className=" justify-center p-1">
                                                 <h1 className="text-md uppercase">{movie.name}</h1>

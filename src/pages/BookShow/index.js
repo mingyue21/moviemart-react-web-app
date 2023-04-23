@@ -118,7 +118,7 @@ function BookShow() {
             });
             if (response.success) {
                 message.success(response.message);
-                navigate("/profile");
+                navigate("/movie");
             } else {
                 message.error(response.message);
             }

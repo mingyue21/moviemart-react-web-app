@@ -16,9 +16,9 @@ View upcoming movies and release dates
 
 The MovieMart application was built using the following technologies:
 
-*Frontend: React, Redux, Bootstrap
-*Backend: Node.js, Express, MongoDB
-*Payment processing: Stripe
+*   Frontend: React, Redux, Bootstrap
+*   Backend: Node.js, Express, MongoDB
+*   Payment processing: Stripe
 
 ## System Architecture
 

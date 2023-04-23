@@ -4,13 +4,12 @@ MovieMart is a web application that allows users to search and browse movies, vi
 
 ## Features
 
-Search movies by title, genre, and release year
+Search movies by title
 Browse movies by popularity, rating, and release date
-View movie details including cast, director, synopsis, and trailer
+View movie details including release year, popularity, overview
 Purchase movie tickets
 Create an account and save favorite movies
-Write and read movie reviews
-View upcoming movies and release dates
+Create a theater and add moviews
 
 ## Technologies Used
 

@@ -13,23 +13,23 @@ function Home() {
     const [movies, setMovies] = React.useState([]);
     const dispatch = useDispatch();
     const getData = async () => {
-      try {
-        dispatch(ShowLoading());
-        const response = await getAllBookmarkedMovies();
-        if (response.success) {
-          setMovies(response.data);
-        } else {
-          message.error(response.message);
+        try {
+            dispatch(ShowLoading());
+            const response = await getAllBookmarkedMovies();
+            if (response.success) {
+                setMovies(response.data);
+            } else {
+                message.error(response.message);
+            }
+            dispatch(HideLoading());
+        } catch (error) {
+            dispatch(HideLoading());
+            message.error(error.message);
         }
-        dispatch(HideLoading());
-      } catch (error) {
-        dispatch(HideLoading());
-        message.error(error.message);
-      }
     };
-  
+
     useEffect(() => {
-      getData();
+        getData();
     }, []);
 
     return (
@@ -61,7 +61,7 @@ function Home() {
                     </Col>
                 ))}
             </Row>
-            
+
         </div>
     )
 }

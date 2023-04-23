@@ -122,16 +122,16 @@ function ProtectedRoute({ children }) {
                     </h1>
                 }
                 <i className="ri-logout-circle-r-line ml-2"
-    onClick={() => {
-        if (user) {
-            localStorage.removeItem("token");
-            navigate("/");
-            setIsLoggedIn(false);
-            dispatch(Logout());
-            setActiveLink("/")
-        }
-    }}
-    />
+                    onClick={() => {
+                        if (user) {
+                            localStorage.removeItem("token");
+                            navigate("/");
+                            setIsLoggedIn(false);
+                            dispatch(Logout());
+                            setActiveLink("/")
+                        }
+                    }}
+                />
 
             </div>
 

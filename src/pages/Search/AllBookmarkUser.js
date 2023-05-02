@@ -22,7 +22,7 @@ function AllBookmarkUser(props) {
     return (
         <div>
             <div className="mt-3 title-box">
-                <h2 className="section-title">Bookmarked Movies</h2>
+                <h2 className="section-title">Who bookmarked this movie</h2>
             </div>
             <div className="list-of-group">
                 {users &&

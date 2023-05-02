@@ -1,15 +1,29 @@
 # MovieMart Application
+This is client side for https://moviemart.netlify.app
+
+For server side, refer to https://github.com/mingyue21/moviemart-node-server-app
 
 MovieMart is a web application that allows users to search and browse movies, view movie details, and purchase movie tickets. The application is designed to provide a seamless and user-friendly experience to its customers.
 
 ## Features
-
-Search movies by title
-Browse movies by popularity, rating, and release date
-View movie details including release year, popularity, overview
-Purchase movie tickets
-Create an account and save favorite movies
-Create a theater and add moviews
+* Account Management
+  * Register
+  * Login
+* Anonymous User (Applicatble to all user types)
+  * Browse movies ranked by bookmark counts
+  * Search movies through external APIs
+  * View movie details including release year, popularity, overview
+  * View other user profile
+* Regular User (Applicable to all registered users)
+  * Bookmark movies
+  * Book tickets
+  * Update profile
+* Admin
+  * Add movies
+  * Approve theaters
+* Theater Owner
+  * Add theaters
+  * Add shows
 
 ## Technologies Used
 
